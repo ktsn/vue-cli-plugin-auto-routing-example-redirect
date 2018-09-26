@@ -9,7 +9,14 @@ const RouterLayout = createRouterLayout(layout => {
   return import('@/layouts/' + layout + '.vue')
 })
 
+// You can modify generated routes to add a redirect route.
+routes.push({
+  path: '/*',
+  redirect: '/'
+})
+
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
